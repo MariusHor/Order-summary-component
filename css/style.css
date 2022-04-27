@@ -1,0 +1,88 @@
+/*-----------------------------------*\
+ * #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+    /*COLORS - PRIMARY*/
+    --clr-pale-blue: hsl(225, 100%, 94%);
+    --clr-bright-blue: hsl(245, 75%, 52%);
+    /*COLORS - NEUTRAL*/
+    --clr-very-pale-blue: hsl(225, 100%, 98%);
+    --clr-desaturated-blue: hsl(224, 23%, 55%);
+    --clr-dark-blue: hsl(223, 47%, 23%);
+    --clr-white: hsl(0, 0%, 100%);
+    /* TYPOGRAPHY */
+    --fs-body: 1.6rem;
+    --ff-primary: 'Red Hat Display', sans-serif;
+    /*BORDERS*/
+    --border-radius: 2rem;
+}
+
+/*-----------------------------------*\
+ * #RESET
+\*-----------------------------------*/
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-size: var(--fs-body);
+    font-family: var(--ff-primary);
+    background: url(../images/pattern-background-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: var(--clr-pale-blue);
+    padding: 0;
+    margin: 0;
+
+}
+
+/*-----------------------------------*\
+ * #MAIN
+\*-----------------------------------*/
+
+.main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.card {
+    background: var(--clr-white);
+    max-width: 375px;
+    border-radius: var(--border-radius);
+    box-shadow: 10px 10px 10px rgb(0, 0, 0, 10%);
+    text-align: center;
+}
+
+.card__hero {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.card__content {
+    padding: 0 4rem 4rem;
+    display: grid;
+    justify-content: center;
+}
+
+.btn {
+    display: block;
+}
