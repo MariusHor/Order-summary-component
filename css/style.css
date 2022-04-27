@@ -113,6 +113,10 @@ body {
     margin-top: 3rem;
 }
 
+.btn--transparent:hover {
+    color: var(--clr-dark-blue);
+}
+
 .card__header {
     font-weight: 900;
     color: var(--clr-dark-blue);
