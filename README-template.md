@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://www.frontendmentor.io/challenges/order-summary-component-QlPmajDUj/hub/order-summary-component-with-flexbox-and-bem-HyHF4VwSc)
+- Solution URL: (https://www.frontendmentor.io/solutions/order-summary-component-with-flexbox-and-bem-HyHF4VwSc)
 - Live Site URL: (https://mariushor.github.io/Order-summary-component/)
 
 ## My process
