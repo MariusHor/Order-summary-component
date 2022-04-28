@@ -12,8 +12,11 @@
     --clr-dark-blue: hsl(223, 47%, 23%);
     --clr-white: hsl(0, 0%, 100%);
     /* TYPOGRAPHY */
-    --fs-body: 1.5rem;
+    --fs-body: 1.6rem;
     --ff-primary: 'Red Hat Display', sans-serif;
+    --fw-500: 500;
+    --fw-700: 700;
+    --fw-900: 900;
     /*BORDERS*/
     --border-radius: 2rem;
 }
@@ -22,6 +25,7 @@
  * #RESET
 \*-----------------------------------*/
 
+/* Box sizing rules */
 html {
     box-sizing: border-box;
     font-size: 62.5%;
@@ -31,22 +35,86 @@ html {
     box-sizing: inherit;
 }
 
-img {
-    display: block;
-    max-width: 100%;
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 body {
+    min-height: 100vh;
     font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-500);
+    color: var(--clr-desaturated-blue);
+    line-height: 1.6;
     background: url(../images/pattern-background-desktop.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-color: var(--clr-pale-blue);
-    padding: 0;
-    margin: 0;
-    color: var(--clr-desaturated-blue);
-    line-height: 1.6;
-
+    text-rendering: optimizeSpeed;
 }
 
 /*-----------------------------------*\
@@ -75,56 +143,13 @@ body {
 }
 
 .card__content {
-    font-size: var(--fs-body);
     display: grid;
     justify-items: center;
-    padding: 0 2.5rem 3.5rem;
-}
-
-.btn {
-    display: block;
-    padding: 1.5rem;
-    font-weight: 900;
-    cursor: pointer;
-    font-size: 1.4rem;
-    font-family: inherit;
-    border: none;
-}
-
-.btn--blue {
-    color: var(--clr-white);
-    background: var(--clr-bright-blue);
-    border-radius: 1rem;
-    width: 100%;
-    box-shadow: 0px 10px 25px rgb(56, 41, 224, 30%);
-}
-
-.btn--blue:hover {
-    opacity: 0.7;
-}
-
-.btn--transparent {
-    background: var(--clr-white);
-    width: fit-content;
-    color: inherit;
-    margin-top: 1rem;
-    padding: 0;
-    margin-top: 3rem;
-}
-
-.btn--transparent:hover {
-    color: var(--clr-dark-blue);
-}
-
-.card__header {
-    font-weight: 900;
-    color: var(--clr-dark-blue);
-    font-size: 2.2rem;
+    padding: 3rem 2.5rem 3rem;
 }
 
 .card__summary {
-    margin-top: 2rem;
-    padding: 0 1.5rem;
+    padding: 0 1.1rem;
 }
 
 .order {
@@ -132,11 +157,61 @@ body {
     width: 100%;
     border-radius: 1rem;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 2rem;
-    margin: 1rem 0 2.5rem;
+    margin: 2.5rem 0;
+}
+
+.btn {
+    display: block;
+    font-size: 1.5rem;
+    font-family: inherit;
+    font-weight: var(--fw-900);
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+}
+
+.btn--blue {
+    color: var(--clr-white);
+    width: 100%;
+    background: var(--clr-bright-blue);
+    border-radius: 1rem;
+    box-shadow: 0px 5px 20px rgb(56, 41, 224, 50%);
+    padding: 1.4rem;
+
+}
+
+.btn--blue:hover {
+    opacity: 0.7;
+}
+
+.btn--change {
+    font-size: 1.2rem;
+    font-weight: var(--fw-700);
+    color: var(--clr-bright-blue);
+    height: fit-content;
+    background: inherit;
+    text-decoration: underline;
+}
+
+.btn--transparent {
+    color: inherit;
+    width: fit-content;
+    background: var(--clr-white);
+    margin-top: 2.5rem;
+}
+
+.btn--transparent:hover {
+    color: var(--clr-dark-blue);
+}
+
+.card__header {
+    font-size: 2.2rem;
+    font-weight: var(--fw-900);
+    color: var(--clr-dark-blue);
+    margin-bottom: 1rem;
 }
 
 .order__plan {
@@ -145,26 +220,15 @@ body {
     gap: 2rem;
 }
 
-.order__item {
-    margin: 0;
-}
-
-.order__item--bold {
+.order__title {
     color: var(--clr-dark-blue);
-    font-weight: 900;
+    font-weight: var(--fw-900);
 }
 
-.order__change {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--clr-bright-blue);
-}
-
-@media only screen and (min-width: 48rem) {
+@media only screen and (min-width: 36rem) {
 
     .card__content {
-        font-size: 1.6rem;
-        padding: 0 5rem 3.5rem;
+        padding: 4rem 5rem;
     }
 
     .card__header {
@@ -172,11 +236,11 @@ body {
         margin-bottom: 1rem;
     }
 
-    .order__change {
+    .btn--change {
         font-size: 1.4rem;
     }
 
     .order {
-        padding: 2rem 2rem;
+        padding: 2rem 2rem 3rem;
     }
 }
